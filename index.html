@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoundClose — Close the books without chasing pennies.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --primary:#1E4B3F;
+    --primary-hover:#163B32;
+    --accent:#C97A2B;
+    --bg:#F7F6F2;
+    --surface:#FFFFFF;
+    --text:#1B1F1D;
+    --muted:#5C665F;
+    --border:#DCDCD3;
+  }
+  html{background:var(--bg);}
+  body{background:var(--bg); color:var(--text); font-family:'IBM Plex Sans',sans-serif;}
+  h1,h2,h3,h4,.font-heading{font-family:'Space Grotesk',sans-serif;}
+  .mono-num{font-variant-numeric:tabular-nums;}
+  .btn-primary{background:var(--primary); color:#fff; transition:background .15s ease;}
+  .btn-primary:hover{background:var(--primary-hover);}
+  .btn-focus:focus-visible{outline:2px solid var(--primary); outline-offset:2px;}
+  .link-primary{color:var(--primary);}
+  .link-primary:hover{color:var(--primary-hover);}
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50" style="background:var(--surface); border-bottom:1px solid var(--border);">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="index.html" class="font-heading font-700 text-lg tracking-tight" style="color:var(--text);">
+      <span style="color:var(--primary);">Round</span>Close
+    </a>
+    <div class="flex items-center gap-8">
+      <a href="index.html" class="text-sm font-medium" style="color:var(--text);">Home</a>
+      <a href="pricing.html" class="text-sm font-medium hover:opacity-80" style="color:var(--muted);">Pricing</a>
+      <a href="app.html" class="btn-primary btn-focus text-sm font-medium px-4 py-2 rounded-md">Open App</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="max-w-6xl mx-auto px-6 pt-16 pb-14 grid md:grid-cols-5 gap-10 items-start">
+  <div class="md:col-span-3">
+    <div class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full mb-6" style="background:#EFEDE4; color:var(--muted); border:1px solid var(--border);">
+      Built for Stripe → Xero close
+    </div>
+    <h1 class="font-heading text-4xl md:text-5xl font-700 leading-[1.08] mb-6" style="color:var(--text);">
+      Close the books without chasing pennies.
+    </h1>
+    <p class="text-base md:text-lg leading-relaxed mb-8 max-w-xl" style="color:var(--muted);">
+      Stripe payouts and Xero bank feeds almost never match to the cent — FX rounding leaves hundreds of $0.01–$0.05 gaps that bookkeepers manually clear one line at a time. RoundClose matches every transaction, flags true rounding discrepancies, and generates the adjustment entries for you.
+    </p>
+    <div class="flex items-center gap-4">
+      <a href="app.html" class="btn-primary btn-focus px-6 py-3 rounded-md font-medium text-sm">Open the App</a>
+      <a href="pricing.html" class="text-sm font-medium link-primary">See pricing →</a>
+    </div>
+  </div>
+
+  <!-- ledger-style mock screenshot -->
+  <div class="md:col-span-2">
+    <div class="rounded-lg overflow-hidden" style="background:var(--surface); border:1px solid var(--border); box-shadow:0 1px 2px rgba(27,31,29,0.04), 0 8px 24px rgba(27,31,29,0.06);">
+      <div class="flex items-center justify-between px-4 py-3" style="border-bottom:1px solid var(--border); background:#FBFAF7;">
+        <span class="text-xs font-semibold uppercase tracking-wide" style="color:var(--muted);">Reconciliation — Aug</span>
+        <span class="text-xs font-semibold px-2 py-0.5 rounded" style="background:#E7F0EB; color:var(--primary);">98.4% matched</span>
+      </div>
+      <table class="w-full text-xs">
+        <thead>
+          <tr style="color:var(--muted);" class="text-left border-b" style="border-color:var(--border);">
+            <th class="font-medium px-4 py-2">Stripe</th>
+            <th class="font-medium px-4 py-2">Xero</th>
+            <th class="font-medium px-4 py-2 text-right">Δ</th>
+            <th class="font-medium px-4 py-2 text-right">Status</th>
+          </tr>
+        </thead>
+        <tbody class="mono-num">
+          <tr class="border-b" style="border-color:var(--border);">
+            <td class="px-4 py-2">1,204.33</td>
+            <td class="px-4 py-2">1,204.35</td>
+            <td class="px-4 py-2 text-right" style="color:var(--accent);">0.02</td>
+            <td class="px-4 py-2 text-right"><span class="px-2 py-0.5 rounded text-[11px]" style="background:#F3E7D8; color:var(--accent);">Rounding</span></td>
+          </tr>
+          <tr class="border-b" style="border-color:var(--border);">
+            <td class="px-4 py-2">899.00</td>
+            <td class="px-4 py-2">899.00</td>
+            <td class="px-4 py-2 text-right">0.00</td>
+            <td class="px-4 py-2 text-right"><span class="px-2 py-0.5 rounded text-[11px]" style="background:#E7F0EB; color:var(--primary);">Matched</span></td>
+          </tr>
+          <tr class="border-b" style="border-color:var(--border);">
+            <td class="px-4 py-2">2,310.18</td>
+            <td class="px-4 py-2">2,310.21</td>
+            <td class="px-4 py-2 text-right" style="color:var(--accent);">0.03</td>
+            <td class="px-4 py-2 text-right"><span class="px-2 py-0.5 rounded text-[11px]" style="background:#F3E7D8; color:var(--accent);">Rounding</span></td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2">460.00</td>
+            <td class="px-4 py-2">—</td>
+            <td class="px-4 py-2 text-right">—</td>
+            <td class="px-4 py-2 text-right"><span class="px-2 py-0.5 rounded text-[11px]" style="background:#F6E2DE; color:#9A3B2A;">Unmatched</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="max-w-6xl mx-auto px-6 py-16" style="border-top:1px solid var(--border);">
+  <h2 class="font-heading text-2xl font-700 mb-10">What it does</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="rounded-lg p-6" style="background:var(--surface); border:1px solid var(--border);">
+      <div class="w-9 h-9 rounded-md flex items-center justify-center mb-4" style="background:#E7F0EB;">
+        <span class="text-sm font-700" style="color:var(--primary);">◎</span>
+      </div>
+      <h3 class="font-heading text-base font-700 mb-2">Smart discrepancy matching</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--muted);">Matches Stripe payouts to Xero bank lines by amount and date, distinguishing genuine FX rounding noise from real mismatches that need attention.</p>
+    </div>
+    <div class="rounded-lg p-6" style="background:var(--surface); border:1px solid var(--border);">
+      <div class="w-9 h-9 rounded-md flex items-center justify-center mb-4" style="background:#E7F0EB;">
+        <span class="text-sm font-700" style="color:var(--primary);">⎘</span>
+      </div>
+      <h3 class="font-heading text-base font-700 mb-2">One-click adjustment entries</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--muted);">Generates ready-to-import bank fee adjustments for every rounding-matched pair, so you stop typing the same $0.02 entry by hand.</p>
+    </div>
+    <div class="rounded-lg p-6" style="background:var(--surface); border:1px solid var(--border);">
+      <div class="w-9 h-9 rounded-md flex items-center justify-center mb-4" style="background:#E7F0EB;">
+        <span class="text-sm font-700" style="color:var(--primary);">▤</span>
+      </div>
+      <h3 class="font-heading text-base font-700 mb-2">Reconciliation dashboard</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--muted);">See totals, matched counts, and unmatched exceptions at a glance before you close the month.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="max-w-6xl mx-auto px-6 py-16" style="border-top:1px solid var(--border);">
+  <h2 class="font-heading text-2xl font-700 mb-10">How it works</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div>
+      <div class="text-xs font-semibold mb-3 mono-num" style="color:var(--accent);">1</div>
+      <h3 class="font-heading text-base font-700 mb-2">Upload your CSVs</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--muted);">Drop in your Stripe payout export and Xero bank feed CSV — RoundClose parses and normalizes both into clean transaction records.</p>
+    </div>
+    <div>
+      <div class="text-xs font-semibold mb-3 mono-num" style="color:var(--accent);">2</div>
+      <h3 class="font-heading text-base font-700 mb-2">Auto-match transactions</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--muted);">The engine pairs transactions by amount and date, tagging exact matches, rounding discrepancies, and true unmatched items separately.</p>
+    </div>
+    <div>
+      <div class="text-xs font-semibold mb-3 mono-num" style="color:var(--accent);">3</div>
+      <h3 class="font-heading text-base font-700 mb-2">Export adjustments & close</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--muted);">Review the generated FX rounding adjustments and reconciliation summary, then export straight into your close checklist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TEASER -->
+<section class="max-w-6xl mx-auto px-6 py-16" style="border-top:1px solid var(--border);">
+  <h2 class="font-heading text-2xl font-700 mb-10">Pricing</h2>
+  <div class="grid md:grid-cols-2 gap-6 max-w-3xl">
+    <div class="rounded-lg p-6" style="background:var(--surface); border:1px solid var(--border);">
+      <h3 class="font-heading text-base font-700 mb-1">Free</h3>
+      <div class="mb-4"><span class="text-3xl font-700 font-heading mono-num">$0</span></div>
+      <ul class="text-sm space-y-2 mb-6" style="color:var(--muted);">
+        <li>1 reconciliation run per month</li>
+        <li>Up to 100 transactions</li>
+        <li>CSV export</li>
+      </ul>
+      <a href="pricing.html" class="block text-center text-sm font-medium px-4 py-2 rounded-md" style="border:1px solid var(--primary); color:var(--primary);">Try it free</a>
+    </div>
+    <div class="rounded-lg p-6 relative" style="background:var(--surface); border:2px solid var(--primary);">
+      <span class="absolute -top-3 right-6 text-[11px] font-semibold px-2 py-1 rounded" style="background:var(--primary); color:#fff;">Most used</span>
+      <h3 class="font-heading text-base font-700 mb-1">Pro</h3>
+      <div class="mb-4"><span class="text-3xl font-700 font-heading mono-num">$19</span><span class="text-sm" style="color:var(--muted);">/mo</span></div>
+      <ul class="text-sm space-y-2 mb-6" style="color:var(--muted);">
+        <li>Unlimited reconciliation runs</li>
+        <li>Unlimited transactions</li>
+        <li>Xero-ready adjustment export</li>
+        <li>Multi-entity support</li>
+      </ul>
+      <a href="pricing.html" class="btn-primary btn-focus block text-center text-sm font-medium px-4 py-2 rounded-md">Get Pro</a>
+    </div>
+  </div>
+  <a href="pricing.html" class="inline-block mt-6 text-sm font-medium link-primary">See full plan details →</a>
+</section>
+
+<!-- FAQ -->
+<section class="max-w-6xl mx-auto px-6 py-16" style="border-top:1px solid var(--border);">
+  <h2 class="font-heading text-2xl font-700 mb-10">FAQ</h2>
+  <div class="max-w-3xl divide-y" style="border-color:var(--border);">
+    <div class="py-5">
+      <h3 class="font-heading text-sm font-700 mb-2">How does RoundClose tell a rounding discrepancy from a real error?</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--muted);">It compares amounts in minor units within a small cent threshold and dates within a configurable tolerance window — matches within that band are flagged as rounding, everything else stays unmatched for your review.</p>
+    </div>
+    <div class="py-5">
+      <h3 class="font-heading text-sm font-700 mb-2">Does this replace my Xero reconciliation workflow?</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--muted);">No — it prepares matched pairs and adjustment entries so you can import or post them in Xero in seconds instead of hand-building each line.</p>
+    </div>
+    <div class="py-5">
+      <h3 class="font-heading text-sm font-700 mb-2">What if a transaction doesn't match on either side?</h3>
+      <p class="text-sm leading-relaxed" style="color:var(--muted);">It's listed separately as unmatched Stripe or unmatched Xero so you can investigate real gaps instead of digging through hundreds of correct ones.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid var(--border);">
+  <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="font-heading font-700 text-sm" style="color:var(--text);"><span style="color:var(--primary);">Round</span>Close</div>
+    <p class="text-xs" style="color:var(--muted);">© 2026 RoundClose. Built for the last day of the month.</p>
+  </div>
+</footer>
+
+</body>
+</html>

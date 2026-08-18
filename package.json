@@ -1,0 +1,11 @@
+{
+  "name": "stripe-xero-rounding-matcher-v2",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "papaparse": "^5.4.1"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}
