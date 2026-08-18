@@ -26,6 +26,11 @@
             font-family: 'Space Grotesk', sans-serif;
         }
     </style>
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <script>
+      Paddle.Environment.set("production");
+      Paddle.Initialize({ token: "live_2a334460f66dcc646589b47f8b1" });
+    </script>
 </head>
 <body class="bg-[var(--background)] text-[var(--text-primary)]">
     <nav class="bg-[var(--surface)] border-b border-[var(--border)]">
@@ -102,7 +107,7 @@
                         Multi-entity support
                     </li>
                 </ul>
-                <a href="https://sandbox-pay.paddle.io/hsc_01m0bfj926vv56g4z9rn8cr8w7_ndhkjbdvrcny10jqjwdt054kv73tgy7t?price_id=pri_01m0bfb3ds0vftvkt0kbczy4by" class="block w-full text-center px-4 py-2 bg-[var(--primary)] text-white rounded-md hover:bg-[var(--primary-hover)]">Get Pro</a>
+                <button type="button" onclick="Paddle.Checkout.open({items:[{priceId:'pri_01m0bhm8ahjh9zwq5g200td2ac',quantity:1}]})" class="block w-full text-center px-4 py-2 bg-[var(--primary)] text-white rounded-md hover:bg-[var(--primary-hover)]">Get Pro</button>
             </div>
         </div>
 
